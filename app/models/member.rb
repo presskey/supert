@@ -4,7 +4,7 @@ class Member < ActiveRecord::Base
 
   attr_accessible :username, :password, :password_confirmation, :remember_me
 
-  validates :username, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
 
   def to_s
     self.username
