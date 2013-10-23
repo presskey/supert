@@ -1,0 +1,20 @@
+- content_for :caption do
+  = t "#{@filter}_tickets"
+
+- if @tickets.any?
+  %table
+    %tr
+      %th Reference
+      %th Subject
+      %th Assignee
+      %th Status
+      %th Actions
+    - @tickets.each do |ticket|
+      %tr
+        %td=  link_to ticket.reference, [:staff, ticket]
+        %td=  ticket.subject
+        %td=  ticket.assignee
+        %td=t ticket.status
+        %td=  link_to 'Take ownership', [:take_ownership, :staff, ticket], method: 'put'
+- else
+  %p No data available.

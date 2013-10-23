@@ -1,0 +1,5 @@
+= simple_form_for [:staff, ticket, Reply.new] do |f|
+  = f.input :response,          as: :text
+  = f.input :new_assignee_id,   collection: Member.all.map {|d| [d.username, d.id]}
+  = f.input :new_status_id,        collection: Ticket::STATUS.map {|s,i| [t(s), i]}
+  = f.submit

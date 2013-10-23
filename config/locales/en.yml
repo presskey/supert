@@ -1,0 +1,13 @@
+en:
+  unassigned_tickets: "New Unassigned Tickets"
+  open_tickets: "Open Tickets"
+  onhold_tickets: "On hold Tickets"
+  closed_tickets: "Closed Tickets"
+
+  tickets:
+    updated: "Ticket has updated successfully"
+    took_ownership: "You took ownership on %{reference} ticket"
+
+  replies:
+    created: "Reply has been posted successfully"
+  

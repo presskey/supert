@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Suppert
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    %nav.top-bar
+      %ul
+        %li=link_to 'New unassigned tickets', unassigned_staff_tickets_path
+        %li=link_to 'Open tickets', open_staff_tickets_path
+        %li=link_to 'On hold tickets', onhold_staff_tickets_path
+        %li=link_to 'Closed tickets', closed_staff_tickets_path
+        - if member_signed_in?
+          %li= link_to 'Log out', destroy_member_session_path, :method => :delete
+    = render 'layouts/search_form'
+    - if content_for?(:caption)
+      %h2= yield :caption
+    = render 'shared/flashes'
+    = yield

@@ -1,0 +1,6 @@
+- content_for :caption do
+  Ticket #{@ticket.reference}
+
+= render partial: 'form',  locals: {ticket: @ticket}
+%h3 Replies
+= render partial: 'shared/replies', locals: {replies: @ticket.replies}
