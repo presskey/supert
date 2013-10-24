@@ -6,11 +6,11 @@ FactoryGirl.define do
     client_email  'no@no.no'
     subject       'subject'
     body          'message'
-    status :waiting_for_staff_response
 
     trait :unassigned do
       assignee nil
     end
+    
     trait :assigned do
       association :assignee, factory: :member
     end
@@ -19,6 +19,10 @@ FactoryGirl.define do
       trait status do
         status status
       end
+    end
+
+    trait :invalid do
+      client_email "invalid"
     end
   end
 end

@@ -5,8 +5,13 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(params[:ticket])
-    @ticket.save
-    respond_with @ticket
+    respond_with @ticket do |format|
+      if @ticket.save
+        format.html { render }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def new
